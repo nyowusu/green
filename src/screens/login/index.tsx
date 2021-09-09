@@ -42,9 +42,6 @@ const OverLay = styled.View`
 
 const Container = styled.ScrollView`
   flex: 1;
-
-  /* height: ${height}px; */
-  border: 1px solid red;
 `;
 
 const GreenLogo = styled.View`
@@ -94,6 +91,7 @@ const GetQuotes = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 16px;
 `;
 
 const TextContainer = styled.View`
