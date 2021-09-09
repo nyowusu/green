@@ -11,15 +11,20 @@ import {
 } from 'react-native';
 import splash from './assets/images/splash.png';
 import {
-  DMSansBold,
-  DMSansBoldItalic,
-  DMSansItalic,
-  DMSansMedium,
-  DMSansMediumItalic,
-  DMSansRegular,
-  FKScreamerBackslanted,
-  FKScreamerSlanted,
-  FKScreamerUpright,
+  NunitoSansBlack,
+  NunitoSansBlackItalic,
+  NunitoSansBold,
+  NunitoSansBoldItalic,
+  NunitoSansExtraBold,
+  NunitoSansExtraBoldItalic,
+  NunitoSansExtraLight,
+  NunitoSansExtraLightItalic,
+  NunitoSansLight,
+  NunitoSansLightItalic,
+  NunitoSansRegular,
+  NunitoSansSemiBold,
+  NunitoSansSemiBoldItalic,
+  NunitoSansItalic,
 } from './src/constants/font';
 import Navigation from './src/navigation';
 import { Provider } from 'react-redux';
@@ -33,15 +38,20 @@ const { width, height } = Dimensions.get('window');
 export default function App() {
   // Load fonts
   const [isFontsLoaded] = useFonts({
-    [DMSansBold]: require('./assets/fonts/DMSans-Bold.ttf'),
-    [DMSansBoldItalic]: require('./assets/fonts/DMSans-BoldItalic.ttf'),
-    [DMSansItalic]: require('./assets/fonts/DMSans-Italic.ttf'),
-    [DMSansMedium]: require('./assets/fonts/DMSans-Medium.ttf'),
-    [DMSansMediumItalic]: require('./assets/fonts/DMSans-MediumItalic.ttf'),
-    [DMSansRegular]: require('./assets/fonts/DMSans-Regular.ttf'),
-    [FKScreamerBackslanted]: require('./assets/fonts/FKScreamer-Backslanted.ttf'),
-    [FKScreamerSlanted]: require('./assets/fonts/FKScreamer-Slanted.ttf'),
-    [FKScreamerUpright]: require('./assets/fonts/FKScreamer-Upright.ttf'),
+    [NunitoSansBlack]: require('./assets/fonts/Nunito-Black.ttf'),
+    [NunitoSansBlackItalic]: require('./assets/fonts/Nunito-BlackItalic.ttf'),
+    [NunitoSansBold]: require('./assets/fonts/Nunito-Bold.ttf'),
+    [NunitoSansBoldItalic]: require('./assets/fonts/Nunito-BoldItalic.ttf'),
+    [NunitoSansExtraBold]: require('./assets/fonts/Nunito-ExtraBold.ttf'),
+    [NunitoSansExtraBoldItalic]: require('./assets/fonts/Nunito-ExtraBoldItalic.ttf'),
+    [NunitoSansExtraLight]: require('./assets/fonts/Nunito-ExtraLight.ttf'),
+    [NunitoSansExtraLightItalic]: require('./assets/fonts/Nunito-ExtraLightItalic.ttf'),
+    [NunitoSansItalic]: require('./assets/fonts/Nunito-Italic.ttf'),
+    [NunitoSansLight]: require('./assets/fonts/Nunito-Light.ttf'),
+    [NunitoSansLightItalic]: require('./assets/fonts/Nunito-LightItalic.ttf'),
+    [NunitoSansRegular]: require('./assets/fonts/Nunito-Regular.ttf'),
+    [NunitoSansSemiBold]: require('./assets/fonts/Nunito-SemiBold.ttf'),
+    [NunitoSansSemiBoldItalic]: require('./assets/fonts/Nunito-SemiBoldItalic.ttf'),
   });
 
   // Load assets

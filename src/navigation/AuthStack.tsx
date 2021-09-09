@@ -19,7 +19,11 @@ const Stack = createNativeStackNavigator<RootAuthStackParamList>();
 export default function AuthStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name={screens.LoginScreen} component={LoginScreen} />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={screens.LoginScreen}
+        component={LoginScreen}
+      />
 
       <Stack.Screen name={screens.QuotesScreen} component={QuotesScreen} />
     </Stack.Navigator>
