@@ -42,6 +42,7 @@ const OverLay = styled.View`
 const Container = styled.View`
   flex: 1;
   align-items: center;
+  margin-bottom: 100px;
 `;
 
 const GreenLogo = styled.View`

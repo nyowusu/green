@@ -63,6 +63,7 @@ export default function QuotesScreen() {
 
   return (
     <>
+      <StatusBar translucent backgroundColor="transparent" />
       <BackgroundImageContainer
         style={{
           ...StyleSheet.absoluteFillObject,
