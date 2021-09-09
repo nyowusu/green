@@ -1,4 +1,4 @@
-export interface IDefaultState {
+export interface IGlobalDefaultState {
   loading: boolean;
   apiError?: Error;
 }

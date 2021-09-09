@@ -16,3 +16,4 @@ export const lightOrange = 'rgb(255, 198, 133)'; // #FFC671
 export const darkPurple = 'rgb(38, 32, 54)'; // #262036
 export const transparent = 'rgba(0, 0, 0, 0)'; // #00000000
 export const green = 'rgb(2,88,57)'; //#025839
+export const darkGreen = 'rgb(1,50,32)'; // #013220

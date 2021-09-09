@@ -2,7 +2,7 @@ export interface IQuotesDefaultState {
   loading: boolean;
   apiError?: any;
 
-  list: IQuote[];
+  list: IQuote;
 }
 
 export interface ICost {
@@ -11,24 +11,18 @@ export interface ICost {
   electric: number;
 }
 
-export interface IGas {
+export interface IEnergy {
   all: number;
   day: number;
   night: number;
   standing: number;
-}
-
-export interface IElectric {
-  all: number;
-  day: number;
-  night: number;
-  standing: number;
+  title?: string;
 }
 
 export interface IPricing {
   cost: ICost;
-  gas: IGas;
-  electric: IElectric;
+  gas: IEnergy;
+  electric: IEnergy;
   name: string;
   fixed: boolean;
   length?: number;
