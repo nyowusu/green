@@ -16,6 +16,7 @@ import { ILoginValues } from '../../state/user/types';
 import { VALID_EMAIL } from '../../constants';
 import { login } from '../../state/user/actions';
 import * as screens from '../../constants/screens';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
 
@@ -39,10 +40,11 @@ const OverLay = styled.View`
   background-color: 'rgba(0,0,0,1)';
 `;
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   flex: 1;
-  align-items: center;
-  margin-bottom: 100px;
+
+  /* height: ${height}px; */
+  border: 1px solid red;
 `;
 
 const GreenLogo = styled.View`
@@ -129,7 +131,7 @@ export default function Login({ navigation }: Props) {
   const handleOnTextChange = (value: string) => setUser(value);
 
   return (
-    <>
+    <SafeAreaView style={{ flex: 1 }}>
       <BackgroundImageContainer style={{ ...StyleSheet.absoluteFillObject }}>
         <BackgroundImage
           source={loginImage}
@@ -203,6 +205,6 @@ export default function Login({ navigation }: Props) {
           <Entypo name="chevron-right" size={24} color={colors.white} />
         </GetQuotes>
       </Container>
-    </>
+    </SafeAreaView>
   );
 }
