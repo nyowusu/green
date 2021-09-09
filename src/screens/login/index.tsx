@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, TextInput } from 'react-native';
 import styled from 'styled-components/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import loginImage from '../../../assets/images/login-bg-1.jpeg';
 import { Button } from '../../components/button';
 import { Text } from '../../components/text';
 import { NunitoSansExtraBold } from '../../constants/font';
 import * as colors from '../../constants/colors';
+import { RootAuthStackParamList } from '../../navigation/AuthStack';
+import { useDispatch } from 'react-redux';
+import { ILoginValues } from '../../state/user/types';
+import { VALID_EMAIL } from '../../constants';
+import { login } from '../../state/user/actions';
+import * as screens from '../../constants/screens';
 
 const { width, height } = Dimensions.get('window');
 
@@ -69,7 +76,7 @@ const LoginTextInput = styled.TextInput`
   height: 60px;
   border: 1px solid ${colors.dimmerWhite};
   padding: 10px;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 8px;
   width: ${width - 32}px;
   color: ${colors.white};
@@ -90,7 +97,36 @@ const TextContainer = styled.View`
   padding-bottom: 16px;
 `;
 
-export default function Login() {
+export type LoginScreenNavigationProp =
+  NativeStackNavigationProp<RootAuthStackParamList>;
+
+type Props = {
+  navigation: LoginScreenNavigationProp;
+};
+
+export default function Login({ navigation }: Props) {
+  const dispatch = useDispatch();
+  const [user, setUser] = useState('');
+
+  const handleLogin = async () => {
+    const loginValues: ILoginValues = {
+      user,
+      type: VALID_EMAIL.test(user) ? 'email' : 'phone',
+      callback: 'green://',
+    };
+    try {
+      const response = await dispatch(login(loginValues) as any);
+    } catch (error) {
+      // TODO: display error message on screen
+    }
+  };
+
+  const goToQuotesScreen = () => {
+    navigation.navigate(screens.QuotesScreen);
+  };
+
+  const handleOnTextChange = (value: string) => setUser(value);
+
   return (
     <>
       <BackgroundImageContainer style={{ ...StyleSheet.absoluteFillObject }}>
@@ -135,9 +171,14 @@ export default function Login() {
           </Text>
         </GreenSlogan>
         <InputContainer>
-          <LoginTextInput placeholder="Account email/mobile number" />
+          <LoginTextInput
+            autoCapitalize="none"
+            placeholder="Account email/mobile number"
+            placeholderTextColor={colors.dimmerWhite}
+            onChangeText={handleOnTextChange}
+          />
           <LoginInput>
-            <LoginButton color={colors.green} style={{}}>
+            <LoginButton color={colors.green} onPress={handleLogin}>
               <Text
                 type="RegularText"
                 fontSize={16}
@@ -148,7 +189,7 @@ export default function Login() {
             </LoginButton>
           </LoginInput>
         </InputContainer>
-        <GetQuotes>
+        <GetQuotes onPress={goToQuotesScreen}>
           <TextContainer>
             <Text
               type="RegularText"

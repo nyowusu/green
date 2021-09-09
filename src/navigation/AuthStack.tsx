@@ -25,7 +25,11 @@ export default function AuthStack() {
         component={LoginScreen}
       />
 
-      <Stack.Screen name={screens.QuotesScreen} component={QuotesScreen} />
+      <Stack.Screen
+        options={{ title: 'Get Quotes' }}
+        name={screens.QuotesScreen}
+        component={QuotesScreen}
+      />
     </Stack.Navigator>
   );
 }
